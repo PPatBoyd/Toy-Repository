@@ -1,0 +1,20 @@
+{
+  "name": "testnpmproject",
+  "version": "1.0.0",
+  "description": "test project for words",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node dist/index.js",
+    "prestart": "npm run build",
+    "build": "tsc",
+    "debug": "npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "4.2.4",
+    "lodash": "4.17.21",
+    "lodash-es": "4.17.21",
+    "@types/lodash": "4.14.169"
+  }
+}
