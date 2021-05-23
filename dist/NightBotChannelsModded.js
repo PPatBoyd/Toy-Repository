@@ -1,5 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+// "use strict";
+// Object.defineProperty(exports, "__esModule", { value: true });
+// exports = {};
+//const x = require('./NightBotModCheck.js');
+//import  from './NightBotModCheck';
 //   const mod : Moderator = {
 //     status:200,
 //     user:"woooords",
