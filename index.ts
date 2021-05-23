@@ -48,22 +48,26 @@ const SoManyMods: Moderator[] = [{
         partnered:false
       }
      ]},
-     {"status":200,"user":"ppatboyd","channels":[{"name":"nymuuu","followers":316,"views":7427,"partnered":false}],"cursor":""}];
+     {
+       status:200,
+       user:"ppatboyd",
+       cursor:"",
+       channels:[
+         {
+           name:"nymuuu",
+           followers:316,
+           views:7427,
+           partnered:false
+          }]
+      }];
 
-  function filterChannelProps(channel: Channel, allowedProps: (keyof Channel)[]) : Channel {
+
+  function filterProps<T>(channel: T, allowedProps: (keyof T)[]) : T {
     return Object.fromEntries(
       Object.entries(channel).filter(([key/*, value*/]) => {
-        return (allowedProps.includes(key as keyof Channel));
+        return (allowedProps.includes(key as keyof T));
       })
-    );
-  }
-
-  function filterModeratorProps(mod : Moderator, allowedProps: (keyof Moderator)[]) : Moderator {
-    return Object.fromEntries(
-      Object.entries(mod).filter(([key/*, value*/]) => {
-        return (allowedProps.includes(key as keyof Moderator));
-      })
-    );
+    ) as T;
   }
 
   // Returns a filtered copy of a channel list
@@ -81,13 +85,13 @@ const SoManyMods: Moderator[] = [{
     // Iterate over the channels and filter down to the channel properties we want
     filteredChannels.forEach(
       (channel: Channel, index: number, array : Channel[]) => {
-        array[index] = filterChannelProps(channel, channelPropertyFilter);
+        array[index] = filterProps<Channel>(channel, channelPropertyFilter);
       }
     );
 
     return filteredChannels;
   }
-
+  
   // Returns a filtered copy of a moderator list
   function FilterModerators(mods: Moderator[], filterOptions : FilterActionOptions, modMatch : Moderator, modPropFilter : (keyof Moderator)[], channelMatch : Channel, channelPropFilter : (keyof Channel)[]) : Moderator[] {
 
@@ -105,7 +109,7 @@ const SoManyMods: Moderator[] = [{
       mod.channels = FilterChannels(mod.channels, filterOptions, channelMatch, channelPropFilter);
 
       // Filter down to the mod properties we want
-      array[index] = filterModeratorProps(mod, modPropFilter);
+      array[index] = filterProps<Moderator>(mod, modPropFilter);
     })
 
     return filteredMods;
@@ -121,3 +125,16 @@ const SoManyMods: Moderator[] = [{
   const coolModsNamedWordsModMatch : Moderator = { user: "woooords" };
 
   console.log("\nCooler Mods Named Words and Their Not-Partnered Channels: " + JSON.stringify(FilterModerators(SoManyMods, { mutation: "copy" }, coolModsNamedWordsModMatch, ModeratorPropertyFilter, notPartneredChannelMatch, partneredChannelPropertyFilter), null, "\t"));
+
+
+  const wooordsMod = SoManyMods[0];
+
+  let channelsModerated : string = "Wooords moderates for: ";
+
+  wooordsMod.channels.forEach((channel:Channel) =>{
+    channelsModerated = channelsModerated + channel.name + ", ";
+  });
+
+  channelsModerated = channelsModerated.substring(0, channelsModerated.length-2);
+
+  console.log(channelsModerated);
