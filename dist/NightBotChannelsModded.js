@@ -33,7 +33,7 @@
 //         partnered:false
 //       }
 //      ]};
-var mod;
+
 var channelsModerated = mod.user + " moderates for: ";
 mod.channels.forEach(function (channel) {
     channelsModerated = channelsModerated + channel.name + ", ";
