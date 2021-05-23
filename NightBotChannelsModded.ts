@@ -1,5 +1,8 @@
 
-import { Channel, Moderator } from './NightBotModCheck';
+
+// import type { Channel, Moderator } from './NightBotModCheck';
+//const x = require('NightBotModCheck.js');
+import * as x from './NightBotModCheck';
   
   
 //   const mod : Moderator = {
@@ -33,11 +36,11 @@ import { Channel, Moderator } from './NightBotModCheck';
 //       }
 //      ]};
 
-let mod : Moderator;
+let mod : x.Moderator;
 
   let channelsModerated : string = mod.user + " moderates for: ";
 
-  mod.channels.forEach((channel:Channel) =>{
+  mod.channels.forEach((channel:x.Channel) =>{
     channelsModerated = channelsModerated + channel.name + ", ";
   });
 

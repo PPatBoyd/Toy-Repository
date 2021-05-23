@@ -9,6 +9,7 @@ function filterProps(channel, allowedProps) {
     }));
 }
 exports.filterProps = filterProps;
+exports.filterProps = filterProps;
 // Returns a filtered copy of a channel list
 function FilterChannels(channels, filterOptions, channelMatch, channelPropertyFilter) {
     // Apply filter options
@@ -23,6 +24,7 @@ function FilterChannels(channels, filterOptions, channelMatch, channelPropertyFi
     });
     return filteredChannels;
 }
+exports.FilterChannels = FilterChannels;
 exports.FilterChannels = FilterChannels;
 // Returns a filtered copy of a moderator list
 function FilterModerators(mods, filterOptions, modMatch, modPropFilter, channelMatch, channelPropFilter) {
@@ -39,5 +41,6 @@ function FilterModerators(mods, filterOptions, modMatch, modPropFilter, channelM
     });
     return filteredMods;
 }
+exports.FilterModerators = FilterModerators;
 exports.FilterModerators = FilterModerators;
 //# sourceMappingURL=NightBotModCheck.js.map

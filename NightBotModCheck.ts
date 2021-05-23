@@ -26,6 +26,9 @@ export function filterProps<T>(channel: T, allowedProps: (keyof T)[]) : T {
   ) as T;
 }
 
+
+exports.filterProps = filterProps;
+
 // Returns a filtered copy of a channel list
 export function FilterChannels(channels: Channel[], filterOptions : FilterActionOptions, channelMatch : Channel, channelPropertyFilter : (keyof Channel)[]) : Channel[] {
 
@@ -47,6 +50,9 @@ export function FilterChannels(channels: Channel[], filterOptions : FilterAction
 
   return filteredChannels;
 }
+
+exports.FilterChannels = FilterChannels;
+
 
 // Returns a filtered copy of a moderator list
 export function FilterModerators(mods: Moderator[], filterOptions : FilterActionOptions, modMatch : Moderator, modPropFilter : (keyof Moderator)[], channelMatch : Channel, channelPropFilter : (keyof Channel)[]) : Moderator[] {
@@ -70,3 +76,5 @@ export function FilterModerators(mods: Moderator[], filterOptions : FilterAction
 
   return filteredMods;
 }
+
+exports.FilterModerators = FilterModerators;
