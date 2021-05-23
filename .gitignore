@@ -1,5 +1,5 @@
-# Build Directory
-dist/ 
+# Build Directory -- making available for NightBot reference purposes
+# dist/ 
 
 # Dependency Directory
 node_modules/
