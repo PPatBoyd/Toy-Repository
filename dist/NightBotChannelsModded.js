@@ -39,5 +39,6 @@ mod.channels.forEach(function (channel) {
     channelsModerated = channelsModerated + channel.name + ", ";
 });
 channelsModerated = channelsModerated.substring(0, channelsModerated.length - 2);
-channelsModerated;
+channelsModerated:
+"or I just put this in does this print?"
 //# sourceMappingURL=NightBotChannelsModded.js.map
